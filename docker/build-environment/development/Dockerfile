@@ -22,7 +22,7 @@ RUN amazon-linux-extras install epel \
   && nvm install 10 \
   && npm install -g gulp bower \
   && yum -y --setopt=tsflags=nodocs install chromium \
-  && yum -y clean all
+  && yum -y clean all \
   && rm -rf /var/cache/yum
 
 ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
