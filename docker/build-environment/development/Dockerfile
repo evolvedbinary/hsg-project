@@ -33,10 +33,10 @@ RUN cd \
 && source ~/.bashrc  \
 && nvm install 10  \
 && npm install -g gulp bower  \
-&& ln -s $(which mvn) /usr/local/bin/mvn \
-&& ln -s $(which gulp) /usr/local/bin/gulp \
-&& mkdir -p /usr/local/opt/node@10/bin \
-&& ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
+&& sudo ln -s $(which mvn) /usr/local/bin/mvn \
+&& sudo ln -s $(which gulp) /usr/local/bin/gulp \
+&& sudo mkdir -p /usr/local/opt/node@10/bin \
+&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
 
 
 ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
