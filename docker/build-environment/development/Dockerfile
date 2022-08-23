@@ -25,7 +25,7 @@ RUN amazon-linux-extras install epel \
 USER docker 
 
 RUN cd \
-&& sudo ls \
+&& ls \
 && whoami
 
 # RUN touch ~/.bashrc \
