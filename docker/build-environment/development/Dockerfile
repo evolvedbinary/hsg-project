@@ -25,6 +25,8 @@ RUN amazon-linux-extras install epel \
 && echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
 && whoami
 
+ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
+
 USER docker 
 
 RUN cd \
@@ -36,11 +38,14 @@ RUN cd \
 && sudo ln -s $(which mvn) /usr/local/bin/mvn \
 && sudo ln -s $(which gulp) /usr/local/bin/gulp \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
-&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
+&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
+&& git clone https://github.com/evolvedbinary/hsg-project.git \
+&& cd hsg-project \
+&& ant setup \
+&& rm repos/hsg-shell/.npmrc \
+&& ant build \
+&& find . -name "*.xar"
 
-
-ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
-ENV NVM_DIR=/root/.nvm
 
 
   
