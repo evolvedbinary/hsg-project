@@ -20,8 +20,11 @@ RUN amazon-linux-extras install epel \
 && adduser docker \
 && usermod -aG wheel docker \
 && echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-&& su docker \
-&& cd \
+&& whoami
+
+USER docker 
+
+RUN cd \
 && sudo ls
 
 # RUN touch ~/.bashrc \
