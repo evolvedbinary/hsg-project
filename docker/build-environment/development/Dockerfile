@@ -10,12 +10,12 @@ LABEL org.opencontainers.image.authors="Evolved Binary Ltd <tech@evolvedbinary.c
 COPY resources/bellsoft.repo /etc/yum.repos.d/bellsoft.repo
 
 RUN amazon-linux-extras install epel \
-&& yum -y update \
-&& yum -y upgrade  \
-&& yum -y remove java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless  \
-&& yum -y remove java-11-amazon-corretto java-11-amazon-corretto-headless  \
-&& yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
-&& yum -y --setopt=tsflags=nodocs install tar git ant maven which \
+# && yum -y update \
+# && yum -y upgrade  \
+# && yum -y remove java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless  \
+# && yum -y remove java-11-amazon-corretto java-11-amazon-corretto-headless  \
+# && yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
+# && yum -y --setopt=tsflags=nodocs install tar git ant maven which \
 && adduser -aG wheel docker \
 && echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
 
