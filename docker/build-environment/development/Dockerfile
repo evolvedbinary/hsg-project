@@ -42,10 +42,9 @@ RUN cd \
 && git clone https://github.com/evolvedbinary/hsg-project.git \
 && cd hsg-project \
 && ant setup \
-&& rm repos/hsg-shell/.npmrc \
-&& ant build \
+&& rm repos/hsg-shell/.npmrc 
+
+RUN ant build 2>&1 tee build.log \
 && find . -name "*.xar"
-
-
 
   
