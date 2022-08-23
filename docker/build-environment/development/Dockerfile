@@ -19,9 +19,10 @@ RUN amazon-linux-extras install epel \
 && yum -y install shadow-utils \
 && adduser docker \
 && usermod -aG wheel docker \
-&& echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
-
-USER docker
+&& echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+&& su docker \
+&& cd \
+&& sudo ls
 
 # RUN touch ~/.bashrc \
 # && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash  \
