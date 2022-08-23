@@ -15,7 +15,7 @@ RUN amazon-linux-extras install epel \
 && yum -y remove java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless  \
 && yum -y remove java-11-amazon-corretto java-11-amazon-corretto-headless  \
 && yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
-&& yum -y --setopt=tsflags=nodocs install tar git ant maven which \
+&& yum -y --setopt=tsflags=nodocs install tar git ant maven which 
 
 
 RUN adduser --disabled-password --gecos '' docker
@@ -35,7 +35,7 @@ RUN touch ~/.bashrc \
 && ln -s $(which mvn) /usr/local/bin/mvn \
 && ln -s $(which gulp) /usr/local/bin/gulp \
 && mkdir -p /usr/local/opt/node@10/bin \
-&& ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
+&& ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
 
 
 ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
