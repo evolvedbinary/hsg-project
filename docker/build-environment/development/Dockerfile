@@ -24,20 +24,19 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER docker
 
-RUN <<EOF
-touch ~/.bashrc 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash 
-source ~/.bashrc 
-nvm install 10 
-npm install -g gulp bower 
-yum -y --setopt=tsflags=nodocs install chromium 
-yum -y clean all 
-rm -rf /var/cache/yum
-ln -s $(which mvn) /usr/local/bin/mvn
-ln -s $(which gulp) /usr/local/bin/gulp
-mkdir -p /usr/local/opt/node@10/bin
-ln -s $(which npm) /usr/local/opt/node@10/bin/npm
-EOF
+RUN touch ~/.bashrc \
+&& curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash  \
+&& source ~/.bashrc  \
+&& nvm install 10  \
+&& npm install -g gulp bower  \
+&& yum -y --setopt=tsflags=nodocs install chromium  \
+&& yum -y clean all  \
+&& rm -rf /var/cache/yum \
+&& ln -s $(which mvn) /usr/local/bin/mvn \
+&& ln -s $(which gulp) /usr/local/bin/gulp \
+&& mkdir -p /usr/local/opt/node@10/bin \
+&& ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
+
 
 ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
 ENV NVM_DIR=/root/.nvm
