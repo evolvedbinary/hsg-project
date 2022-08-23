@@ -17,7 +17,8 @@ RUN amazon-linux-extras install epel \
 # && yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
 # && yum -y --setopt=tsflags=nodocs install tar git ant maven which \
 && yum -y install shadow-utils \
-&& adduser -aG wheel docker \
+&& adduser docker \
+&& usermod -aG wheel docker \
 && echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
 USER docker
