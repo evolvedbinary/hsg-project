@@ -9,8 +9,8 @@ LABEL org.opencontainers.image.authors="Evolved Binary Ltd <tech@evolvedbinary.c
 
 COPY resources/bellsoft.repo /etc/yum.repos.d/bellsoft.repo
 
-RUN <<EOF 
-amazon-linux-extras install epel 
+RUN amazon-linux-extras install epel
+RUN <<EOF
 yum -y update
 yum -y upgrade 
 yum -y remove java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless 
