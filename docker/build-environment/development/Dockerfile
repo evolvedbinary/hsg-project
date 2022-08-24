@@ -45,6 +45,6 @@ RUN cd \
 && rm repos/hsg-shell/.npmrc \
 && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
 && ant build 2>&1 | tee build.log \
-&& mkdir/home/docker/xras \
+&& mkdir /home/docker/xras \
 && find . -name "*.xar" -exec mv {} /home/docker/xars \; \
 && ls -la /home/docker/xars \
