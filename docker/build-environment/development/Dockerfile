@@ -43,5 +43,5 @@ RUN cd \
 && cd hsg-project \
 && ant setup \
 && rm repos/hsg-shell/.npmrc \
-&& ant build 2>&1 tee build.log \
+&& ant build 2>&1 | tee build.log \
 && find . -name "*.xar"
