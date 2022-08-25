@@ -43,9 +43,6 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which gulp) /usr/local/bin/gulp \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
 && sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
-&& git clone https://github.com/evolvedbinary/hsg-project.git \
-&& cd hsg-project \
-&& git checkout docker-dev-be \
 && ant setup | tee setup.log \
 && rm repos/hsg-shell/.npmrc \
 && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
