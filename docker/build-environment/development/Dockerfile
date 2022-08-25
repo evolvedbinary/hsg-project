@@ -9,6 +9,10 @@ LABEL org.opencontainers.image.authors="Evolved Binary Ltd <tech@evolvedbinary.c
 
 COPY docker/resources/bellsoft.repo /etc/yum.repos.d/bellsoft.repo
 
+WORKDIR /home/docker/hsg-project
+
+COPY . .
+
 RUN amazon-linux-extras install epel \
 && yum -y update \
 && yum -y upgrade  \
@@ -23,13 +27,11 @@ RUN amazon-linux-extras install epel \
 && adduser docker \
 && usermod -aG wheel docker \
 && echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-&& whoami
+&& chmod -R rw /home/docker/hsg-project
 
 ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
 
 USER docker 
-WORKDIR /home/docker/hsg-project
-COPY . .
 
 RUN ls -la /home/docker/hsg-project \
 && pwd
