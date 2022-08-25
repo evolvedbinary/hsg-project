@@ -34,7 +34,7 @@ COPY . .
 
 RUN ls -la /home/docker/hsg-project \
 && pwd \
-&& chmod -R a+rw /home/docker/hsg-project
+&& sudo chmod -R a+rw /home/docker/hsg-project
 
 RUN touch ~/.bashrc \
 && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash  \
