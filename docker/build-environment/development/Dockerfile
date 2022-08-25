@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.authors="Evolved Binary Ltd <tech@evolvedbinary.c
       org.opencontainers.image.description="HSG Project - Build Environment for Development Image" \
       org.opencontainers.image.title="hsg-project-dev-be"
 
-COPY resources/bellsoft.repo /etc/yum.repos.d/bellsoft.repo
+COPY docker/resources/bellsoft.repo /etc/yum.repos.d/bellsoft.repo
 
 RUN amazon-linux-extras install epel \
 && yum -y update \
@@ -28,8 +28,8 @@ RUN amazon-linux-extras install epel \
 ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
 
 USER docker 
-WORKDIR /home/docker
-COPY ../../../ .
+WORKDIR /home/docker/hsg-project
+COPY . .
 
 # RUN cd \
 # && touch ~/.bashrc \
@@ -51,4 +51,5 @@ COPY ../../../ .
 # && mkdir /home/docker/xras \
 # && find . -name "*.xar" -exec mv {} /home/docker/xars \; \
 # && ls -la /home/docker/xars 
-RUN ls -la /home/docker
+RUN ls -la /home/docker \
+&& pwd
