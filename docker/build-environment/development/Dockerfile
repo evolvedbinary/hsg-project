@@ -42,7 +42,7 @@ RUN cd \
 && git clone https://github.com/evolvedbinary/hsg-project.git \
 && cd hsg-project \
 && git checkout docker-dev-be \
-&& ant setup \
+&& ant setup | tee setup.log \
 && rm repos/hsg-shell/.npmrc \
 && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
 && ant build 2>&1 | tee build.log \
