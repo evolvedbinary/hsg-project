@@ -15,7 +15,7 @@ RUN amazon-linux-extras install epel \
 && yum -y remove java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless  \
 && yum -y remove java-11-amazon-corretto java-11-amazon-corretto-headless  \
 && yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
-&& yum -y --setopt=tsflags=nodocs install tar git ant maven \
+&& yum -y --setopt=tsflags=nodocs install tar git ant ant-contrib maven \
 && yum -y --setopt=tsflags=nodocs install chromium  \
 && yum -y --setopt=tsflags=nodocs install shadow-utils sudo which \
 && yum -y clean all  \
