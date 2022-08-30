@@ -80,7 +80,7 @@
         <iterate target="build-xar"/>
     </target>
 
-    <target name="export" depends="prepare" description="exports all packages">
+    <target name="export" description="exports all packages">
         <iterate target="copy-xar"/>
     </target>
 
