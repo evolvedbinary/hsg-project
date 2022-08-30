@@ -445,7 +445,7 @@
     </target>
 
     <target name="copy-xar">
-        <copy todir="dist/" failonerror="false">
+        <copy todir="${xars}" failonerror="false">
             <fileset dir="${dir}/build">
                 <include name="*.xar"/>
             </fileset>
