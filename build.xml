@@ -80,6 +80,10 @@
         <iterate target="build-xar"/>
     </target>
 
+    <target name="export" depends="prepare" description="exports all packages">
+        <iterate target="copy-xar"/>
+    </target>
+
     <target name="deploy" description="Deploy all packages"
         depends="ping-localhost,ping-public-repo,deploy.init,deploy.install-packages-from-public-repo,deploy.upload,deploy.deploy,deploy.cleanup"/>
 
@@ -438,6 +442,14 @@
             </fileset>
         </copy>
         <delete dir="${dir}" includes="*.xar"/>
+    </target>
+
+    <target name="copy-xar">
+        <copy todir="dist/" failonerror="false">
+            <fileset dir="${dir}/build">
+                <include name="*.xar"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="git.pull">
