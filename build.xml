@@ -81,7 +81,7 @@
     </target>
 
     <target name="export" description="exports all packages">
-        <iterate target="copy-xar"/>
+        <iterate-xars target="copy-xar"/>
     </target>
 
     <target name="deploy" description="Deploy all packages"
@@ -445,11 +445,7 @@
     </target>
 
     <target name="copy-xar">
-        <copy todir="${xars}" failonerror="false">
-            <fileset dir="${dir}/build">
-                <include name="*.xar"/>
-            </fileset>
-        </copy>
+        <copy file="${xar}" todir="${xars}" verbose="true" failonerror="true"></copy>
     </target>
 
     <target name="git.pull">
