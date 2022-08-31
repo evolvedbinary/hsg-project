@@ -29,13 +29,6 @@ ENV JAVA_HOME=/usr/lib/jvm/bellsoft-java8.x86_64
 
 USER docker 
 
-WORKDIR /home/docker/hsg-project
-COPY . .
-
-RUN ls -la /home/docker/hsg-project \
-&& pwd \
-&& sudo chmod -R a+rw /home/docker/hsg-project
-
 RUN touch ~/.bashrc \
 && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash  \
 && source ~/.bashrc  \
@@ -44,9 +37,4 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which mvn) /usr/local/bin/mvn \
 && sudo ln -s $(which gulp) /usr/local/bin/gulp \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
-&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
-&& ant setup | tee setup.log \
-&& rm repos/hsg-shell/.npmrc \
-&& sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
-&& ant build 2>&1 | tee build.log \
-&& find . -name "*.xar" 
+&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
