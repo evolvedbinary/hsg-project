@@ -43,6 +43,6 @@ WORKDIR /home/docker
 
 copy docker/resources/script.sh /home/docker
 
-RUN chmod +x /home/docker/script.sh
+RUN sudo chmod +x /home/docker/script.sh
 ENTRYPOINT ["/home/docker/script.sh"]
 CMD ["build", "https://github.com/HistoryAtState/hsg-project.git", "master"]
