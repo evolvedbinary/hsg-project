@@ -38,3 +38,11 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which gulp) /usr/local/bin/gulp \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
 && sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
+
+WORKDIR /home/docker
+
+copy docker/resources/script.sh /home/docker
+
+RUN chmod +x /script.sh
+ENTRYPOINT ["/home/docker/script.sh"]
+CMD ["build", "https://github.com/HistoryAtState/hsg-project.git", "master"]
