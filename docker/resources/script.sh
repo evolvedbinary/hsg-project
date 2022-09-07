@@ -14,7 +14,11 @@ if [[ $ACTION == "build" ]]; then
     git clone $REPO
     cd hsg-project
     git checkout $BRANCH
-    
+
+    ant setup | tee setup.log \
+    && rm repos/hsg-shell/.npmrc \
+    && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
+    && ant build 2>&1 | tee build.log 
 elif [[ $ACTION == "build-one" ]]; then
     echo "building one-xar from $REPO and branch $Branch"
 fi
