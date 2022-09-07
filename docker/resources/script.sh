@@ -18,7 +18,8 @@ if [[ $ACTION == "build" ]]; then
     ant setup | tee setup.log \
     && rm repos/hsg-shell/.npmrc \
     && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
-    && ant build 2>&1 | tee build.log 
+    && ant build 2>&1 | tee build.log \
+    && cp xars/*.xar /home/docker/xars
 elif [[ $ACTION == "build-one" ]]; then
     echo "building one-xar from $REPO and branch $Branch"
 fi
