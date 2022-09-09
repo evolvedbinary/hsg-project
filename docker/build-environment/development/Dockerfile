@@ -17,7 +17,7 @@ RUN amazon-linux-extras install epel \
 && yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
 && yum -y --setopt=tsflags=nodocs install tar git ant ant-contrib maven \
 && yum -y --setopt=tsflags=nodocs install chromium  \
-&& yum -y --setopt=tsflags=nodocs install shadow-utils sudo which \
+&& yum -y --setopt=tsflags=nodocs install shadow-utils sudo which bzip2 \
 && yum -y clean all  \
 && rm -rf /var/cache/yum \
 && adduser docker \
