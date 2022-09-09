@@ -11,8 +11,11 @@ if [[ $ACTION == "build" ]]; then
     && ant setup | tee setup.log \
     && rm repos/hsg-shell/.npmrc \
     && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
-    && ant build 2>&1 | tee build.log \
-    && find . -name "*.xar" 
+    && curl --output exist.tar.bz2 --location https://github.com/eXist-db/exist/releases/download/eXist-6.0.1/exist-distribution-6.0.1-unix.tar.bz2 \
+    && bzip2 -d exist.tar.bz2 && tar xvf exist.tar \
+    && ./exist-distribution-6.0.1/bin/startup.sh & \
+    && sleep 30 \
+    && ant | tee ant.log
 elif [[ $ACTION == "build-one" ]]; then
     echo "building one-xar"
 fi
