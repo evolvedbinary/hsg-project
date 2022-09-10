@@ -6,7 +6,8 @@ ACTION="${1:-build}"
 
 if [[ $ACTION == "build" ]]; then
     echo "building hsg-project"
-    sudo chmod -R a+rw /home/docker/hsg-project \
+    cd /home/docker \
+    && git clone https://github.com/HistoryAtState/hsg-project.git \
     && cd /home/docker/hsg-project \
     && ant setup 2>&1 | tee setup.log \
     && rm repos/hsg-shell/.npmrc \
