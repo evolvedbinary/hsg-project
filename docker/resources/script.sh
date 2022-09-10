@@ -10,8 +10,8 @@ if [[ $ACTION == "build" ]]; then
     && cd /home/docker/hsg-project \
     && ant setup | tee setup.log \
     && rm repos/hsg-shell/.npmrc \
-    && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
-    && ant | tee ant.log
+    && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json 
+    
 elif [[ $ACTION == "build-one" ]]; then
     echo "building one-xar"
 fi
