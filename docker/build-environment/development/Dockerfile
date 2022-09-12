@@ -37,7 +37,8 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which mvn) /usr/local/bin/mvn \
 && sudo ln -s $(which gulp) /usr/local/bin/gulp \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
-&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm 
+&& sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm
+&& sudo ln -s $(which node) /usr/bin/node
 
 copy docker/resources/script.sh /home/docker
 
