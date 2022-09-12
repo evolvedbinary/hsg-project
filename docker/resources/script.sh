@@ -3,6 +3,7 @@ set -x
 
 #fetch args and declare them as vars
 ACTION="${1:-build}"
+XAR="${2:-hsg-shell}"
 
 if [[ $ACTION == "build" ]]; then
     echo "building hsg-project"
@@ -17,7 +18,12 @@ if [[ $ACTION == "build" ]]; then
     ./exist-distribution-6.0.1/bin/startup.sh &
     sleep 30
     ant | tee ant.log
+    ./exist-distribution-6.0.1/bin/shutdown.sh
 
 elif [[ $ACTION == "build-one" ]]; then
     echo "building one-xar"
+    cd /home/docker/hsg-project \
+    && ant -f repos/$XAR/build.xml \
+    && ant deploy-one -Drepo-name=$XAR
+
 fi
