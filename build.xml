@@ -86,6 +86,7 @@
     </target>
 
     <target name="download-xars">
+        <echo message="Downloading ${xar-name}"/>
         <antcall target="download-xar">
             <param name="xar-name" value="${xar-name}"/>
         </antcall>
