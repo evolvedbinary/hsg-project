@@ -95,7 +95,7 @@
     </target>
 
     <target name="rename-xar">
-        <rename src="${xar-name}" dest="000-${xar-name}" />
+        <move file="${xars}/${xar-name}" tofile="${xars}/000-${xar-name}" />
     </target>
 
     <target name="deploy" description="Deploy all packages"
