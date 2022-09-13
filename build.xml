@@ -91,7 +91,7 @@
 
     <target name="rename-xars" depends="prepare,download-public-xars" description="download Xars from public repo">
         <echo message="renaming xar packages: ..."/>
-        <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="reanme-xar" param="xar-name"/>
+        <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="rename-xar" param="xar-name"/>
     </target>
 
     <target name="rename-xar">
