@@ -80,8 +80,23 @@
         <iterate target="build-xar"/>
     </target>
 
-    <target name="export" description="exports all packages">
-        <iterate-xars target="copy-xar"/>
+    <target name="downloadPublic" description="download Xars from public repo">
+        <echo message="Downloading xar packages: ..."/>
+        <antcall target="download-xar"/>
+    </target>
+
+    <target name="download-xar">
+        <taskdef name="fetch" classname="nl.ow.dilemma.ant.fetch.FetchTask">
+            <classpath>
+                <pathelement location="${xars}"/>
+            </classpath>
+        </taskdef>
+        <fetch dest="${xars}" url="https://public-repo.ci.history.state.gov/exist/apps/public-repo/public/expath-crypto-module-6.0.1.xar"
+            failonerror="true" failonzeroextracted="true" maxtime="180">
+            <patternset>
+                <include name="**/*.xar"/>
+            </patternset>
+        </fetch>
     </target>
 
     <target name="deploy" description="Deploy all packages"
