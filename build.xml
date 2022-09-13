@@ -80,13 +80,22 @@
         <iterate target="build-xar"/>
     </target>
 
-    <target name="downloadPublic" description="download Xars from public repo">
+    <target name="download-public-xars" depends="prepare" description="download Xars from public repo">
         <echo message="Downloading xar packages: ..."/>
         <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="download-xar" param="xar-name"/>
     </target>
 
     <target name="download-xar">
         <get dest="${xars}" src="https://public-repo.ci.history.state.gov/exist/apps/public-repo/public/${xar-name}"></get>
+    </target>
+
+    <target name="rename-xars" depends="prepare,download-public-xars" description="download Xars from public repo">
+        <echo message="renaming xar packages: ..."/>
+        <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="reanme-xar" param="xar-name"/>
+    </target>
+
+    <target name="rename-xar">
+        <rename src="${xar-name}" des="000-${xar-name}" />
     </target>
 
     <target name="deploy" description="Deploy all packages"
