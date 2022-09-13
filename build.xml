@@ -82,14 +82,7 @@
 
     <target name="downloadPublic" description="download Xars from public repo">
         <echo message="Downloading xar packages: ..."/>
-        <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="download-xars" param="xar-name"/>
-    </target>
-
-    <target name="download-xars">
-        <echo message="Downloading ${xar-name}"/>
-        <antcall target="download-xar">
-            <param name="xar-name" value="${xar-name}"/>
-        </antcall>
+        <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="download-xar" param="xar-name"/>
     </target>
 
     <target name="download-xar">
