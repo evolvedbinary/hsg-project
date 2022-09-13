@@ -82,21 +82,11 @@
 
     <target name="downloadPublic" description="download Xars from public repo">
         <echo message="Downloading xar packages: ..."/>
-        <antcall target="download-xar"/>
+        <foreach list="${exist.public.repos-xars}" delimiter="," parallel="false" target="download-xar" param="xar-name"/>
     </target>
 
     <target name="download-xar">
-        <taskdef name="fetch" classname="nl.ow.dilemma.ant.fetch.FetchTask">
-            <classpath>
-                <pathelement location="${xars}"/>
-            </classpath>
-        </taskdef>
-        <fetch dest="${xars}" url="https://public-repo.ci.history.state.gov/exist/apps/public-repo/public/expath-crypto-module-6.0.1.xar"
-            failonerror="true" failonzeroextracted="true" maxtime="180">
-            <patternset>
-                <include name="**/*.xar"/>
-            </patternset>
-        </fetch>
+        <get dest="${xars}" src="https://public-repo.ci.history.state.gov/exist/apps/public-repo/public/${xar-name}"></get>
     </target>
 
     <target name="deploy" description="Deploy all packages"
