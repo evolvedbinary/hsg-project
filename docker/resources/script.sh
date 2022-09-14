@@ -12,7 +12,8 @@ if [[ $ACTION == "build" ]]; then
     && ant setup | tee setup.log \
     && rm repos/hsg-shell/.npmrc \
     && sed -i -e 's/\^3.3.6/3.3.6/g' repos/hsg-shell/bower.json \
-    && ant | tee ant.log
+    && ant build | tee ant-build.log \
+    && ant get-public-xars | tee get-public-xars.log
 
 elif [[ $ACTION == "build-one" ]]; then
     echo "building one-xar"
