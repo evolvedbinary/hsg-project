@@ -38,10 +38,11 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which gulp) /usr/local/bin/gulp \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
 && sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
-&& sudo ln -s $(which node) /usr/bin/node
+&& sudo ln -s $(which node) /usr/bin/node \
+&& chmod -R a+rw /home/docker
 
 copy docker/resources/script.sh /home/docker
 
-RUN sudo chmod +x /home/docker/script.sh
-ENTRYPOINT ["/home/docker/script.sh"]
-CMD ["build"]
+WORKDIR /home/docker/hsg-project
+
+CMD ["ant","setup","build","get-public-xars"]
