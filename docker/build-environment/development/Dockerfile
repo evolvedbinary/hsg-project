@@ -41,7 +41,7 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which node) /usr/bin/node \
 && chmod -R a+rw /home/docker \
 && sudo wget -O /tmp/google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
-&& sudo yum install /tmp/google-chrome-stable_current_*.rpm
+&& sudo yum -y install /tmp/google-chrome-stable_current_*.rpm
 
 copy docker/resources/script.sh /home/docker
 
