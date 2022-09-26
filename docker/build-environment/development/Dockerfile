@@ -16,7 +16,7 @@ RUN amazon-linux-extras install epel \
 && yum -y remove java-11-amazon-corretto java-11-amazon-corretto-headless  \
 && yum -y --setopt=tsflags=nodocs install bellsoft-java8  \
 && yum -y --setopt=tsflags=nodocs install tar git ant ant-contrib maven \
-&& yum -y --setopt=tsflags=nodocs install chromium  \
+&& yum -y --setopt=tsflags=nodocs install wget  \
 && yum -y --setopt=tsflags=nodocs install sudo which bzip2 \
 && yum -y clean all  \
 && rm -rf /var/cache/yum \
@@ -39,7 +39,9 @@ RUN touch ~/.bashrc \
 && sudo mkdir -p /usr/local/opt/node@10/bin \
 && sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
 && sudo ln -s $(which node) /usr/bin/node \
-&& chmod -R a+rw /home/docker
+&& chmod -R a+rw /home/docker \
+&& wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
+&& sudo yum install ./google-chrome-stable_current_*.rpm
 
 copy docker/resources/script.sh /home/docker
 
