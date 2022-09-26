@@ -40,8 +40,8 @@ RUN touch ~/.bashrc \
 && sudo ln -s $(which npm) /usr/local/opt/node@10/bin/npm \
 && sudo ln -s $(which node) /usr/bin/node \
 && chmod -R a+rw /home/docker \
-&& wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
-&& sudo yum install ./google-chrome-stable_current_*.rpm
+&& sudo wget -O /tmp/google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
+&& sudo yum install /tmp/google-chrome-stable_current_*.rpm
 
 copy docker/resources/script.sh /home/docker
 
