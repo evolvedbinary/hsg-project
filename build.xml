@@ -472,6 +472,7 @@
         <exec executable="${git}" dir="${local-repo-path}" failonerror="true">
             <arg line="pull"/>
             <arg line="--recurse-submodules"/>
+            <arg line="--depth=1"/>
         </exec>
         <exec executable="${git}" dir="${local-repo-path}" failonerror="true">
             <arg line="submodule"/>
