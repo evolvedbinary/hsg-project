@@ -472,7 +472,6 @@
         <exec executable="${git}" dir="${local-repo-path}" failonerror="true">
             <arg line="pull"/>
             <arg line="--recurse-submodules"/>
-            <arg line="--depth=1"/>
         </exec>
         <exec executable="${git}" dir="${local-repo-path}" failonerror="true">
             <arg line="submodule"/>
@@ -546,6 +545,7 @@
             <arg line="clone"/>
             <arg line="${origin}"/>
             <arg line="${local-repo-name}"/>
+            <arg line="--depth=1"/>
         </exec>
         <echo message="${git.output}"/>
 
