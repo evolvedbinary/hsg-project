@@ -544,7 +544,6 @@
         <echo message="git clone --depth=1 ${origin}${local-repo-name}"/>
         <exec executable="${git}" outputproperty="git.output" dir="${repos}" failonerror="true">
             <arg line="clone"/>
-            <arg line="--depth=1"/>
             <arg line="${origin}"/>
             <arg line="${local-repo-name}"/>
         </exec>
