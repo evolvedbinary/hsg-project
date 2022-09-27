@@ -543,6 +543,7 @@
         <echo message="Cloning ${origin}..."/>
         <exec executable="${git}" outputproperty="git.output" dir="${repos}" failonerror="true">
             <arg line="clone"/>
+            <arg line="--depth 1"/>
             <arg line="${origin}"/>
             <arg line="${local-repo-name}"/>
         </exec>
