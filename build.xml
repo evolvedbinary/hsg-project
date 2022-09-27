@@ -541,7 +541,6 @@
 
     <target name="git.clone">
         <echo message="Cloning ${origin}..."/>
-        <echo message="git clone --depth=1 ${origin}${local-repo-name}"/>
         <exec executable="${git}" outputproperty="git.output" dir="${repos}" failonerror="true">
             <arg line="clone"/>
             <arg line="${origin}"/>
