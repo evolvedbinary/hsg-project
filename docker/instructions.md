@@ -13,7 +13,7 @@ docker build -t evolvedbinary/hsg-project-dev-be:20211128 -f docker/build-enviro
 
 # run the docker scripts
 ```shell
-docker run -it --network="host" -v /home/ubuntu/testdir/hsg-project:/home/docker/hsg-project evolvedbinary/hsg-project-dev-be:20211128 
+docker run -it -v $(pwd):/home/docker/hsg-project evolvedbinary/hsg-project-dev-be:20211128 2>&1 | tee docker-build.log
 ```
 
 # download & launch exist on the host 
@@ -28,7 +28,7 @@ curl --output exist.tar.bz2 --location https://github.com/eXist-db/exist/release
 
 # debug
 ```shell
-docker run -it --network="host" --entrypoint /bin/bash -v /home/ubuntu/testdir/hsg-project:/home/docker/hsg-project evolvedbinary/hsg-project-dev-be:20211128 
+docker run -it --entrypoint /bin/bash -v $(pwd):/home/docker/hsg-project evolvedbinary/hsg-project-dev-be:20211128 
 ```
 
 
