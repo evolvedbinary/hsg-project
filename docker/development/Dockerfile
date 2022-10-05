@@ -7,8 +7,6 @@ LABEL org.opencontainers.image.authors="Evolved Binary Ltd <tech@evolvedbinary.c
       org.opencontainers.image.description="HSG Project - Development Image" \
       org.opencontainers.image.title="hsg-project-dev"
 
-COPY xars/*.xar /exist/autodeploy
-
-EXPOSE 8080 8443
+COPY xars/*.xar /exist/autodeploy/
 
 CMD [ "java", "org.exist.start.Main", "jetty" ]
