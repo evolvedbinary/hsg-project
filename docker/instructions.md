@@ -8,7 +8,7 @@ git clone https://github.com/marmoure/hsg-project.git \
 # build the docker image
 this will prepare the environment and install all the dependencies
 ```shell
-docker build -t evolvedbinary/hsg-project-dev-be:20211128 -f docker/build-environment/development/Dockerfile .
+docker build -t evolvedbinary/hsg-project-dev-be:20211128 -f docker/development/build-environment/Dockerfile .
 ```
 
 # run the docker scripts
