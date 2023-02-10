@@ -46,5 +46,5 @@ RUN touch ~/.bashrc \
 copy docker/resources/script.sh /home/docker
 
 WORKDIR /home/docker/hsg-project
-
-CMD ["ant","setup","build","get-public-xars"]
+   
+CMD ["sudo ant","setup","build","get-public-xars"]
