@@ -23,7 +23,9 @@ docker run -it --entrypoint /bin/bash -v $(pwd):/home/docker/hsg-project evolved
 
 
 # build exist docker image
+```shell
 docker build -t evolvedbinary/hsg-project-dev:20211128 -f docker/development/Dockerfile .
+```
 
 # run the docker image
 ```shell
